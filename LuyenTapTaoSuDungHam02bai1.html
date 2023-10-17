@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function squareCalculation(number) {
+        return number * number;
+    }
+
+    let number1 = 4;
+    let result = squareCalculation(number1);
+    console.log('Kết quả bình phương', result);
+
+    function sTron(R) {
+        return Math.PI * R * R;
+    }
+
+    let number2 = 5;
+    let sHinhTron = sTron(number2);
+    console.log('diện tích hình tròn ', sHinhTron);
+
+    function cTron(R) {
+        return (R * 2) * Math.PI;
+    }
+
+    let number3 = 5;
+    let cHinhTron = cTron(number3);
+    console.log('Chu vi hình tròn ', cHinhTron);
+
+    function kiemTraKyTuSo(kyTu) {
+        return !isNaN(kyTu);
+    }
+
+    let kyTu = '5';
+    console.log(kiemTraKyTuSo(kyTu));
+
+    function kiemTraSoNguyenDuong(so) {
+        if (Number.isInteger(so) && so > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Ví dụ sử dụng hàm
+    console.log(kiemTraSoNguyenDuong(5));    // Output: true
+    console.log(kiemTraSoNguyenDuong(-3));   // Output: false
+
+</script>
+</body>
+</html>

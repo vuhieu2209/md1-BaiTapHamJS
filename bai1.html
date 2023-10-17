@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="number">
+<button onclick="isPrime()">check</button>
+<p id="checkNumber"></p>
+<script>
+
+    function isPrime(number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        console.log('number', number)
+        return true;
+    }
+
+    for (let i = 2; i < 100; i++) {
+        if (isPrime(i)) {
+            console.log('Đây là số nguyên tố', i);
+        }
+    }
+</script>
+</body>
+</html>

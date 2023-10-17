@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        #validate {
+            color: red;
+            text-align: center;
+        }
+        table{
+            width: 40%;
+            margin: auto;
+        }
+        #abc{
+            width: 20%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Add New Product</h1>
+
+<p id="validate"></p>
+<div id="abc">
+<input type="text" id="addProduct">
+<button onclick="addProducts()">Add</button>
+</div>
+<table>
+    <tr>
+        <th colspan="4"><h2>Product Name</h2></th>
+    </tr>
+    <tbody id="ps-table"></tbody>
+</table>
+
+<script>
+    let product = ['Iphone 11','Iphone 12','Iphone 13','Iphone 14','Iphone 15',]
+function showListProduct() {
+    let drawTable = '';
+    for (let i = 0; i < product.length; i++) {
+        drawTable += `<tr>
+                            <td>${i+1}</td>
+                            <td>${product[i]}</td>
+                            <td><button onclick="editProducts(${i})" style="background-color: #4bb64b;color: white;border-radius: 5px;border: solid #4bb64b">Edit</button></td>
+                            <td><button onclick="deleteProducts(${i})" style="background-color: #4bb64b;color: white;border-radius: 5px;border: solid #4bb64b">Delete</button></td>
+                           </tr>`
+    }
+    document.getElementById('ps-table').innerHTML = drawTable;
+}
+showListProduct()
+function addProducts() {
+    let addProducst = document.getElementById('addProduct').value;
+    if (addProducst.trim() === ''){
+        alert('Bạn chưa nhập sản phẩm muốn thêm');
+        return;
+    }
+    product.push(addProducst);
+    alert('Bạn mốn thêm sảm phẩm này');
+    showListProduct();
+}
+function editProducts(index) {
+    let editProducts = prompt('Sửa sản phẩm :' + product[index]);
+    if (editProducts == null){
+        return;
+    }
+    if (editProducts.trim() === ''){
+        document.getElementById('validate').innerText = 'vui long nhập tên Sản phẩm';
+    }
+    else {
+        product[index] = editProducts;
+        showListProduct();
+        document.getElementById('validate').innerText = 'Sửa Sản phẩm thành công';
+    }
+}
+function deleteProducts(index) {
+    if (confirm('Bạn có muốn Xóa sản phẩm này ?')){
+        product.splice(index, 1);
+        showListProduct();
+    }
+}
+</script>
+</body>
+</html>
